@@ -1,0 +1,5 @@
+#!/bin/bash
+
+AWSCLI_IMAGE=yamaszone/awscli:latest
+
+docker run --rm -v $PWD:$PWD -v ~/.ssh:/root/.ssh -v ~/.aws:/root/.aws --workdir=$PWD $AWSCLI_IMAGE aws "$@"
