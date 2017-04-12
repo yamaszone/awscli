@@ -14,4 +14,7 @@ dependencies:
 test:
   override:
     - docker run yamaszone/awscli:latest aws --version
+    - ./run setup-test-framework
+    - ./run configure-bats-assert
+    - bats tests/healthcheck_*
 
