@@ -4,7 +4,10 @@ MAINTAINER Mazedur Rahman <mazedur.rahman.liton@gmail.com>
 
 # Adding bash to support BATS test framework based testing
 RUN apk update \
-	&& apk add bash py-pip
+	&& apk add bash \
+	groff \
+	less \
+	py-pip
 
 RUN python -m pip install -U pip
 RUN pip install --upgrade awscli

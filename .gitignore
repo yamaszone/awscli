@@ -1,5 +1,6 @@
 # Ignore bats-assert library
 tests/helpers/assertions/
+*.swp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

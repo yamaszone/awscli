@@ -11,6 +11,25 @@ help(){
 	exit 0
 }
 
+build_image(){
+	HUB_ACCOUNT=yamaszone
+	IMAGE_NAME=awscli
+	IMAGE_TAG=$1
+	if [[ -z $IMAGE_TAG ]]; then
+		IMAGE_TAG=latest
+	fi
+	docker build -t $HUB_ACCOUNT/$IMAGE_NAME:$IMAGE_TAG .
+}
+
+configure_bats_assert(){
+	# Configure bats-assert library if not configured already
+	LIB_REPO=https://github.com/jasonkarns/bats-assert.git
+	LIB_DIR=tests/helpers/assertions
+	if [[ ! -d $LIB_DIR ]]; then
+		git clone -b v1.1.1 $LIB_REPO $LIB_DIR
+	fi
+}
+
 install_bats(){
 	# Install BATS framework if not installed already
 	type bats >/dev/null 2>&1
@@ -28,21 +47,15 @@ install_bats(){
 	fi
 }
 
-configure_bats_assert(){
-	# Configure bats-assert library if not configured already
-	LIB_REPO=https://github.com/jasonkarns/bats-assert.git
-	LIB_DIR=tests/helpers/assertions
-	if [[ ! -d $LIB_DIR ]]; then
-		git clone -b v1.1.1 $LIB_REPO $LIB_DIR
-	fi
-}
-
 if [[ -z $1 ]];then
 	help
 	exit 0
 fi
 
 case $1 in
+	build)
+		build_image $2
+		;;
 	cba | configure-bats-assert)
 		configure_bats_assert
 		;;
