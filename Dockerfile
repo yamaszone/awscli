@@ -9,8 +9,10 @@ RUN apk update \
 	less \
 	py-pip
 
-RUN python -m pip install -U pip
-RUN pip install --upgrade awscli
+RUN python -m pip install -U pip \
+	&& pip install --upgrade awscli \
+	&& python -m pip uninstall -y pip \
+	&& apk del py-pip
 
 VOLUME ["~/.aws"]
 CMD ["/bin/bash", "--login"]
