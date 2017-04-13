@@ -10,6 +10,7 @@ Minimal [AWS CLI](https://github.com/aws/aws-cli) Docker container using officia
 ## User Guide
 - Copy the shell script [`aws`](https://github.com/yamaszone/awscli/blob/master/aws) under `/usr/local/bin` or `/opt/bin` (CoreOS)
   - `aws` above uses `yamaszone/awscli:latest` as the default image. If you need specific CLI version, see [tags list](https://hub.docker.com/r/yamaszone/awscli/tags/).
+- Configure AWS credentials following [this](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files) instructions or via `aws configure` from terminal.
 
 ## Developer Guide
 - Project root contains a convenient `run` script to help performing typical tasks for developer workflow (e.g. build image, setup test framework to test image, run tests, etc.)
