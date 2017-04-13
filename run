@@ -2,18 +2,21 @@
 
 # Adapted from: https://github.com/yamaszone/ClusterRunner/blob/dockerize_clusterrunner/run-cr
 
+# Use Docker Hub as the default registry
+HUB_ACCOUNT=yamaszone
+IMAGE_NAME=awscli
+
 help(){
 	echo "Usage:"
 	printf "\t cba | configure-bats-assert\t: Configure bats-assert library (first-time only).\n"
 	printf "\t stf | setup-test-framework\t: Setup test framework (first-time only).\n"
+	printf "\t build\t\t\t\t: Build image with the given tag (default=latest).\n"
 	printf "\t tests\t\t\t\t: Run tests.\n"
 	printf "\t help\t\t\t\t: Show this help.\n"
 	exit 0
 }
 
 build_image(){
-	HUB_ACCOUNT=yamaszone
-	IMAGE_NAME=awscli
 	IMAGE_TAG=$1
 	if [[ -z $IMAGE_TAG ]]; then
 		IMAGE_TAG=latest
