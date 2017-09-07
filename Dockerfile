@@ -1,4 +1,4 @@
-FROM python:3.6.1-alpine
+FROM python:3.6-alpine
 
 MAINTAINER Mazedur Rahman <mazedur.rahman.liton@gmail.com>
 
