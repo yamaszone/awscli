@@ -16,5 +16,5 @@ test:
     - docker run yamaszone/awscli:latest aws --version
     - ./run setup-test-framework
     - ./run configure-bats-assert
-    - bats tests/healthcheck_*
+    - ./run tests
 

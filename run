@@ -10,18 +10,9 @@ help(){
 	echo "Usage:"
 	printf "\t cba | configure-bats-assert\t: Configure bats-assert library (first-time only).\n"
 	printf "\t stf | setup-test-framework\t: Setup test framework (first-time only).\n"
-	printf "\t build\t\t\t\t: Build image with the given tag (default=latest).\n"
 	printf "\t tests\t\t\t\t: Run tests.\n"
 	printf "\t help\t\t\t\t: Show this help.\n"
 	exit 0
-}
-
-build_image(){
-	IMAGE_TAG=$1
-	if [[ -z $IMAGE_TAG ]]; then
-		IMAGE_TAG=latest
-	fi
-	docker build -t $HUB_ACCOUNT/$IMAGE_NAME:$IMAGE_TAG .
 }
 
 configure_bats_assert(){
@@ -56,9 +47,6 @@ if [[ -z $1 ]];then
 fi
 
 case $1 in
-	build)
-		build_image $2
-		;;
 	cba | configure-bats-assert)
 		configure_bats_assert
 		;;
