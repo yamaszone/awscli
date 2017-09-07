@@ -8,12 +8,12 @@ dependencies:
   override:
     - docker info
     - if [ -e ~/docker/image.tar ]; then docker load --input ~/docker/image.tar; fi
-    - docker build -t yamaszone/awscli:latest .
-    - mkdir -p ~/docker; docker save yamaszone/awscli:latest > ~/docker/image.tar
+    - docker build -t yamaszone/aws:latest .
+    - mkdir -p ~/docker; docker save yamaszone/aws:latest > ~/docker/image.tar
 
 test:
   override:
-    - docker run yamaszone/awscli:latest aws --version
+    - docker run yamaszone/aws:latest aws --version
     - ./run setup-test-framework
     - ./run configure-bats-assert
     - ./run tests
