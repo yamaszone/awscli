@@ -13,12 +13,12 @@ load helper
 	[ $status -eq 0 ]
 }
 
-@test "AWS: cloudformation command works." {
-	run ./aws cloudformation describe-stacks
-	[ $status -eq 0 ]
-}
+#@test "AWS: cloudformation command works." {
+#	run ./aws cloudformation describe-stacks
+#	[ $status -eq 0 ]
+#}
 
-@test "AWS: ECS command works." {
-	run ./aws ecs describe-clusters
-	[ $status -eq 0 ]
-}
+#@test "AWS: ECS command works." {
+#	run ./aws ecs describe-clusters
+#	[ $status -eq 0 ]
+#}
