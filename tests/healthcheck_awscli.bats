@@ -4,7 +4,7 @@ load helper
 
 @test "AWS: awscli installed properly." {
 	run ./aws --version
-	assert_contains "$output" "aws-cli/1.11"
+	assert_contains "$output" "aws-cli/1.14"
 }
 
 @test "AWS: groff+less installed and awscli displays help." {
